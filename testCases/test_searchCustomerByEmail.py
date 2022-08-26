@@ -43,14 +43,15 @@ class Test_004_SearchCustomerByEmail:
         self.scp.clickSearch()
         time.sleep(5)
         self.logger.info("*********** Clicked search button *************")
-        self.scp.getTableRaws()
-        status = self.scp.getTableValues("james_pan@nopCommerce.com")
+        status = self.scp.getTablebyEmail("james_pan@nopCommerce.com")
         if status:
             assert True
             self.logger.info("*************** TC_004_SearchCustomerByEmail Passed ***************")
             self.driver.close()
         else:
-            assert False
-            self.logger.error("*************** TC_004_SearchCustomerByEmail Passed ***************")
+            self.logger.error("*************** TC_004_SearchCustomerByEmail Failed ***************")
             self.driver.close()
+            assert False
+
+
 
